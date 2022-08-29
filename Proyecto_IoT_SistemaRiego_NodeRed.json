@@ -1,0 +1,328 @@
+[
+    {
+        "id": "2c5652f551d3a789",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f6da743e072296c2",
+        "type": "mqtt in",
+        "z": "2c5652f551d3a789",
+        "name": "",
+        "topic": "ESP8266/Temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c452ba7f22eaa190",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "00ffd0a0f5ec49f3"
+            ]
+        ]
+    },
+    {
+        "id": "b551947fcebfd26d",
+        "type": "debug",
+        "z": "2c5652f551d3a789",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "00ffd0a0f5ec49f3",
+        "type": "function",
+        "z": "2c5652f551d3a789",
+        "name": "toNumber",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "b551947fcebfd26d",
+                "102384add76c4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "102384add76c4bf8",
+        "type": "ui_chart",
+        "z": "2c5652f551d3a789",
+        "name": "",
+        "group": "bd06a07cb6d181e3",
+        "order": 0,
+        "width": "10",
+        "height": "6",
+        "label": "Temperatura Sensor DHT22",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee7bbae3b3246750",
+        "type": "mqtt in",
+        "z": "2c5652f551d3a789",
+        "name": "",
+        "topic": "ESP8266/Humedad",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c452ba7f22eaa190",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "4aa1c77ec795522b"
+            ]
+        ]
+    },
+    {
+        "id": "4aa1c77ec795522b",
+        "type": "function",
+        "z": "2c5652f551d3a789",
+        "name": "toNumber",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "dc71e0a4ba53c8fb",
+                "157127cbc813657b"
+            ]
+        ]
+    },
+    {
+        "id": "dc71e0a4ba53c8fb",
+        "type": "debug",
+        "z": "2c5652f551d3a789",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "157127cbc813657b",
+        "type": "ui_gauge",
+        "z": "2c5652f551d3a789",
+        "name": "",
+        "group": "bd06a07cb6d181e3",
+        "order": 1,
+        "width": "10",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Humedad Sensor DHT22",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 850,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0ef4ddd4f72a65b4",
+        "type": "mqtt in",
+        "z": "2c5652f551d3a789",
+        "name": "",
+        "topic": "ESP8266/HumedadSuelo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c452ba7f22eaa190",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 620,
+        "wires": [
+            [
+                "e1a575819d2b2fa4"
+            ]
+        ]
+    },
+    {
+        "id": "e1a575819d2b2fa4",
+        "type": "function",
+        "z": "2c5652f551d3a789",
+        "name": "toNumber",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 620,
+        "wires": [
+            [
+                "6cbe5c414e493b16",
+                "940ef6721ecff5e1"
+            ]
+        ]
+    },
+    {
+        "id": "6cbe5c414e493b16",
+        "type": "debug",
+        "z": "2c5652f551d3a789",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "940ef6721ecff5e1",
+        "type": "ui_gauge",
+        "z": "2c5652f551d3a789",
+        "name": "",
+        "group": "bd06a07cb6d181e3",
+        "order": 2,
+        "width": "10",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Humedad de Suelo",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 830,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c452ba7f22eaa190",
+        "type": "mqtt-broker",
+        "name": "ESP8266",
+        "broker": "192.168.31.166",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bd06a07cb6d181e3",
+        "type": "ui_group",
+        "name": "Sistema de Riego ESP8266 (Sensores)",
+        "tab": "6127ef7e762bd690",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6127ef7e762bd690",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
